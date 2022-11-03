@@ -12,7 +12,7 @@
 예를 들어, 아래와 같이 정의한 집합 $S$에 대한 셈측도(counting measure)는 측도입니다.
 
 (정의 1.1) **셈측도(counting measure)**  
-$ \mu = \left\{\begin{matrix} n(S) (S\text{ is finite}) \\ \infty (S\text{ is infinite}) \end{matrix}\right.  $
+$ \mu = n(S) (S\text{ is finite}) \text{ or } \infty (S\text{ is infinite})   $
 
 ### $\sigma$-field
 
@@ -40,7 +40,7 @@ $\mathcal{B}$가 $U$로부터 만들어진 $\sigma$-field임을 표현하기 위
 1. 전체집합 $U \in \mathcal{B}$ (정의의 1번과 2번 생각하면 당연)
 2. $B_i \in \mathcal{B} \Rightarrow \bigcap_{i = 1}^{\infty}B_i \in \mathcal{B}$  
 증명: 정의 2번에 따라 모든 $B_i$의 차집합 $B_i^C$가 $\mathcal{B}$에 포함되어 있습니다.   
-정의 3번에 따라 이 차집합의 합집합($\bigcup_{i = 1}^{\infty}B_i^C$) 또한 $\mathcal{B}$에 포함되어 있습니다.  
+정의 3번에 따라 이 차집합의 합집합( $\bigcup_{i = 1}^{\infty}B_i^C$ ) 또한 $\mathcal{B}$에 포함되어 있습니다.  
 드 모르간의 법칙에 따라 이 합집합을 $\bigcap_{i = 1}^{\infty}B_i$으로 나타낼 수 있습니다. [끝]
 3. $U$의 멱집합 $2^U$은 $U$의 $\sigma$-field입니다.
 4. $\sigma$-field는 유한(finite)하거나 셀 수 없이 무한하거나(uncountably infinite) 둘 중 하나입니다.  
@@ -102,17 +102,18 @@ Sample space $\Omega$와 그에 대한 $\sigma$-field $\mathcal{A}$로 이루어
 확률측도 $P$가 정의된 공통의 measure space $(\Omega, \mathcal{A}, P)$에 대해 정의된 확률변수의 indexed family*를 뜻합니다.  
 이때, 해당 족에 포함된 모든 확률변수는 공통의 measurable space $(S, \Sigma)$로의 사상(mapping)이어야 합니다.  
 Indexing에 사용한 index set을 $T$**라고 하면 다음과 같이 나타낼 수 있습니다.    
-$\{X_t(w) : \Omega \rightarrow S | t \in T \}$  
+$\lbrace X_t(w) : \Omega \rightarrow S | t \in T \rbrace$  
 각 확률변수의 공역인 $S$는 state space라고 부릅니다.
 
 *Indexed family란 index set의 원소를 index로 이용하여 번호를 붙인 원소들의 집합을 뜻합니다.  
 **전통적으로 T에는 시간을 표현하는 실수 또는 자연수 집합을 사용하는 경우가 많지만, 시간 이외의 다른 뜻을 가진 다양한 index를 활용할 수도 있습니다.
 
-> 🚧 주의!  
+> 🚧 **주의!** 확률과정에서의 sample space $\Omega$    
+>
 > 위 (정의 1.5)에서 sample space $\Omega$에 대해 오해하기 쉬운 부분이 있어서 예시를 통해 짚고 넘어가겠습니다.  
 >   
 > 앞/뒷면이 나올 확률이 1/2로 같은 동전을 무한 번 던지는 실험에 대해서 확률과정을 아래와 같이 정의합시다.  
-> $\{X_t(w) : \Omega \rightarrow \{0, 1\} = (\text{if } t\text{th coin head then 1, else 0}) | t \in \mathbb{N} \}$  
+> $\lbrace X_t(w) : \Omega \rightarrow \{0, 1\} = (\text{if } t\text{th coin head then 1, else 0}) | t \in \mathbb{N} \rbrace$  
 >   
 > 여기서 sample space $\Omega$를 구성하는 sample point $w$로 적합한 것은  
 > ❌ 한 번의 동전 뒤집기에 대한 결과인 {0}이나 {1}이 아니라  
@@ -126,7 +127,7 @@ $P((X_{t_1}, ..., X_{t_k}) \in B) \text{ for any } B, k$
 ### 확률과정을 보는 두 가지 관점: 확률변수의 집합, 함수공간으로의 사상
 
 확률과정의 정의에 따라, 확률과정을 index set $T$의 원소 $t$와 sample space $\Omega$의 원소 $w$의 함수로 볼 수 있습니다. 즉,  
-$X_t : T \times \Omega \rightarrow \real$
+$X_t : T \times \Omega \rightarrow \mathbb{R}$
 
 1. 여기에서 확률과정 $X_t(w)$에서 $t$를 고정하면 확률변수가 됩니다. 이 사실은 (정의 1.5)을 통해 이미 알아차렸을 것입니다.
 2. 반대로 $w$를 고정하면 $t$에 대한 함수를 얻게 됩니다. 각각의 $t$에 대해 $T=t$일 때 확률변수 $X_t$가 sample point $w$를 어떤 숫자로 표현하는지 나타내는 함수가 만들어집니다.  
@@ -164,9 +165,7 @@ $X_t : T \times \Omega \rightarrow \real$
 확률변수나 확률분포와 마찬가지로 확률과정에서도 모멘트가 정의됩니다.  
 눈여겨볼 점은, 모두 시점 1개나 2개에 대한 함수라는 것입니다.
 
-- mean function: $m_X(t)\equiv E(X_t) = \left\{\begin{matrix}
-\sum_{x}^{}xp_{x_{t}}(x) \text{ when discrete-valued} \\ \int xf_{x_{t}}(x)dx \text{ when continuous-valued}
-\end{matrix}\right.$  
+- mean function: $m_X(t)\equiv E(X_t) = \sum_{x}^{}xp_{x_{t}}(x) \text{ (discrete) or } \int xf_{x_{t}}(x)dx \text{ (continuous)}$  
 $t  = t_0$일 때에 해당하는 확률변수 $X_{t_0}$를 가져와 해당 확률변수의 평균을 구한다고 생각하면 쉽습니다.
 - **auto-correlation function(acf)**: $R_X(t, s) = E[X_tX_s]$  
 확률변수에서 correlation 식과 같지만 같은 확률과정 속 서로 다른 두 시점의 확률변수를 가져온다는 점만 다릅니다.
@@ -205,3 +204,126 @@ Strong stationarity애서는 정의에서 위 성질이 도출되었다면,
 acf 조건이 빠진 이유는 mean 조건과 acvf 조건에서 acf 조건을 유도할 수 있기 때문입니다.  
 
 뒤에서 살펴볼 gaussian process에서 이 wide-sense stationarity(wss) 개념을 활용할 예정입니다.
+
+
+## 함수해석학 (Functional Analysis)
+
+앞으로 계속 등장하게 될 함수해석학의 기본 개념과 정리들을 차례대로 살펴보겠습니다.
+
+### 벡터공간, 거리공간, 노름공간, 내적공간
+
+(정의 1.8) **벡터공간(Vector Space)**
+다음 8가지 조건을 만족하는 (1) 두 원소 간 덧셈, (2) 체(field) $F$ 중 임의의 스칼라와의 곱셈 연산에 대해 닫혀 있는 집합 $V$를  
+$F$에 대한 벡터공간이라고 합니다.
+1. (덧셈 결합법칙) $u + (v + w) = (u + v) + w$
+3. (덧셈 항등원) $\exist 0 \text{ s.t. for } \forall v \in V, v + 0 = v$
+4. (덧셈 역원) $\exist -v \text{ for } \forall v \in V \text{ s.t. } v + (-v) = 0$
+2. (덧셈 교환법칙) $u + v = v + u$
+5. (스칼라곱의 분배법칙 1) $c(x + y) = cx + cy$
+6. (스칼라곱의 분배법칙 2) $(c_1 + c_2)x = c_1x + c_2x$
+5. $a(bv) = (ab)v$
+6. $1v = v$
+
+우리가 자주 접하는 유클리드 공간 $\mathbb{R}^N$이나 특정 크기의 행렬 공간 $\mathcal{M}_{m \times n}$, 공집합이 아닌 집합 $S$에서 실수체와 같은 체 $F$로 가는 함수의 공간 $\mathcal{F}(S, F)$이 모두 위 조건을 만족합니다.  
+사실 이 내용은 선형대수학 기초 중 기초이므로 익숙할 것입니다.
+
+(정의 1.9) **거리공간(Metric Space)**  
+$F$에 대한 벡터공간 $M$에 아래 조건을 만족하는 함수(즉, 거리함수(distance function)) $d : M \times M \rightarrow \mathbb{R}$가 정의되어 있다면  
+해당 벡터공간을 거리공간이라고 합니다.  
+1. $d(x, x) = 0$
+2. $x \neq y \Rightarrow d(x, y) > 0$
+3. $d(x, y) = d(y, x)$
+4. (삼각부등식) $d(x, z) \le d(x, y) + d(y, z)$
+
+같은 벡터공간에 대해서도 다양한 거리함수를 채택할 수 있다는 이야기를 들어보셨을 겁니다.
+
+(정의 1.10) **노름공간(Normed Vector Space)**  
+$F$에 대한 벡터공간 $V$에 대해 거리함수의 조건에 아래 조건을 추가로 하나 더 만족하는 함수, 즉 노름(norm) $\lVert \centerdot \rVert$가 정의되어 있다면  
+해당 벡터공간을 노름공간이라고 합니다.  
+1. $\lVert \alpha x \rVert = \lvert \alpha \rvert \lVert x \rVert$
+
+(정의 1.11) **내적공간(Inner Product Space)**  
+$F$($\mathbb{R}$ 또는 $\mathbb{C}$ 중 하나)에 대한 벡터공간 $V$의 두 벡터를 받는 다음 조건을 만족하는 함수(즉, 내적) $\langle \centerdot, \centerdot \rang : V \times V \rightarrow F$가 정의되어 있다면  
+해당 벡터공간을 내적공간이라고 합니다.  
+1. (켤레대칭) $\lang x, y \rang = \overline{\lang y, x\rang}$
+2. (선형성) $\lang ax + by, z\rang = a\lang x, z\rang + b\lang y, z\rang$
+3. $\text{if } x \neq 0, \lang x, x\rang > 0$
+
+내적이 정의되어 있으면 이를 이용하여 아래와 같이 필요한 5가지 조건을 모두 갖춘 노름을 만들 수 있습니다.  
+$\lVert x \rVert = \sqrt{\lang x, x \rang}$  
+
+따라서 내적공간은 자동으로 노름공간입니다.
+
+### 힐베르트 공간 (Hilbert Space)
+
+**정의**
+
+(정의 1.13) **힐베르트 공간(Hilbert space)**  
+내적공간 $V$가 완비성(completeness)을 갖추었다면 해당 공간은 힐베르트 공간입니다.
+
+그렇다면 완비성이 무엇인지 알아야겠죠?
+
+(정의 1.14) **완비성(completeness)**
+어떤 집합 $V$로 만들 수 있는 모든 코시 수열이 해당 집합 $V$의 원소로 수렴하면, 집합 $V$는 완비성을 갖추었다고 말합니다.  
+코시 수열(cauchy sequence)이란, 유한개의 원소를 제외한 나머지 사이의 거리가 (아무리 작은) 임의의 양수보다 작은 수열을 뜻합니다.
+
+유리수의 집합 $\mathbb{Q}$는 완비성을 갖추었을까요?  
+우리는 $\pi$가 무리수라는 것을 알고 있습니다.  
+$\mathbb{Q}$로 아래와 같은 수열을 만들어볼까요?  
+$a_n \equiv (\pi\text{의 소숫점 n번째 자리까지 나타낸 유한소수}) (n \in \mathbb{N})$  
+그렇다면, 이 수열은 분명 $\mathbb{Q}$의 원소로 이루어진 수열(정확히는 코시 수열)인데,  
+정작 그 수렴값인 $\pi$는 $\mathbb{Q}$에 없습니다.  
+결국 $\mathbb{Q}$는 완비성을 갖추지 못한 것이죠.
+
+대수학에서는 ("실수의 완비성 공리")공리를 써서 실수집합 $\mathbb{R}$은 완비성을 갖추었다고 '정해놓았다'고 합니다.
+
+완비성은 '빈 구멍 없이 꽉 막힌' 이미지를 떠올리면 직관적으로 이해할 수 있습니다.  
+수직선상에서 유리수의 집합은 중간중간 무리수로 구멍이 나 있지만,  
+실수와 같은 경우엔 (공리상) 그럴 수 없죠.
+
+내적공간 중 '빈 구멍 없이 꽉 막힌' 공간을 힐베르트 공간이라고 한다는 것만 기억해둡시다.  
+대수학적으로 엄밀한 증명을 할 것이 아니기 때문에 힐베르트 공간이라는 말을 보면 '내적이 정의되어 있구나' 정도만 떠올려도 될 것 같습니다.
+
+**예시**
+
+앞으로 자주 보게 될 몇몇 힐베르트 공간을 간단히 살펴봅시다.
+
+**$l^2$ 공간**
+
+(정의 1.15) **$l^p$ 공간**  
+다음을 만족하는 모든 수열의 집합을 $l^p$ 공간이라고 부른다. ($0 < p < \infty$)  
+$\sum_{n} \lvert x_n \rvert^p < \infty$  
+
+$l^p$ 공간은 노름이 정의되는 노름공간입니다.  
+워낙 유명한 $l^p$ 노름이니, 아래 형태를 적어두겠습니다.  
+$\lVert x \rVert _p = (\sum_{n} \lvert x_n \rvert^p)^{1 / p}$  
+
+$p = 2$일 때, 즉 $l^2$ 공간은 아래와 같은 내적이 정의된 힐베르트 공간입니다.  
+(사실 $p \neq 2$일 때에는 내적이 정의되지 않습니다. [귀류법을 이용한 증명](http://mathonline.wikidot.com/proof-that-p-when-p-2-is-an-inner-product-space)도 찾아볼 수 있습니다.)  
+$\lang x, y \rang = \sum_{n} \overline{x_n}y_n$
+
+$l^2$의 완비성 증명을 공부하지는 않겠습니다.
+
+**$L^2$ 공간**
+
+(정의 1.16) **$L^p$ 공간**  
+다음을 만족하는 모든 함수 $f : S \rightarrow \mathbb{R} \text{ or } \mathbb{C}$의 집합을 $L^p$ 공간이라고 부른다. ($1 \le p < \infty$)  
+$\int_{S} \lvert f \rvert^p d\mu < \infty$  
+여기에서 $\mu$는 $f$의 정의역 $S$에 대해 정의된 측도입니다.
+
+마찬가지로 이중 $L^2$ 공간만이 내적이 정의될 수 있는 힐베르트 공간입니다.  
+내적은 아래와 같습니다.  
+$\lang f, g \rang = \int_{S} f(x)\overline{g(x)}d\mu(x)$
+
+추가적으로로 $p = \infty$일 때의 경우가 뒤에서 잠시 등장해서, 뜻만 간단히 살펴보고 넘어가겠습니다.  
+(물론 $L^\infty$ 공간은 힐베르트 공간이 아닌 노름공간입니다.)
+
+$p \rightarrow \infty$하면서 $L^p$ 노름은 아래와 같은 '본질적 상한(essential supremum)'의 형태를 띈다고 합니다.  
+$\lVert f \rVert = \text{ess sup}_{x \in S} \lvert f(x) \rvert$  
+본질적 상한 $\alpha$이란, $\lvert f(x^*) \rvert > \alpha$를 만족하는 $\alpha$의 집합의 측도가 0이 되는 값을 뜻합니다.  
+그러니까 '거의(사실상) 상한'이라는 것이죠.
+
+이러한 본질적 상한이 정의되는 모든 함수의 집합을 $L^\infty$ 공간이라고 한다고 합니다.  
+뒤에 한 번 등장하니 이해만 해두도록 하죠.
+
+### 커널 (Kernel)
