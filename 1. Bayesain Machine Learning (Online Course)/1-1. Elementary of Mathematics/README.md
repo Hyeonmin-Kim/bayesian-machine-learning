@@ -464,7 +464,7 @@ $k(x, x') = \lang \phi(x), \phi(x') \rang$
 
 *예 1. 다항 커널*
 
-(정의 1.18) **다항 커널(Polynomial kernel)**  
+(정의 1.23) **다항 커널(Polynomial kernel)**  
 $K(x, x') = (x^Ty +\gamma)^n, x, y$
 
 이 형태만 보아서는 이 함수가 커널의 자격을 갖추었는지 확인하기 어렵습니다.  
@@ -484,7 +484,7 @@ $$
 
 *예 2 가우시안 커널 (또는 RBF 커널)*
 
-(정의 1.19) **RBF 커널(Radial basis function kernel)**  
+(정의 1.24) **RBF 커널(Radial basis function kernel)**  
 $K(x, x') = \exp(-{{\lVert x - x' \rVert}^2\over{2\sigma ^ 2}})$
 
 이번에는 이 함수가 커널인지 포착하는 게 더 어렵습니다. $\sigma = 1$로 두고 한번 살펴보겠습니다.
@@ -541,7 +541,8 @@ $\forall x \in \mathcal{X}$에 대해 $\lbrace\phi_1(x), \phi_2(x), \phi_3(x), .
 
 증명:  
 $\rightarrow$ 방향 증명은 Mercer의 정리 결과 2번으로 알 수 있습니다.  
-$K(x, x') = \sum_{i} \lambda _i \phi _i(x)\phi _i(x')$이므로 $\phi(x) = (\sqrt{\lambda _i}\phi _i(x))_{i = 1}$로 정의하면 좁은 의미의 커널 정의를 충족할 수 있겠네요.  
+$K(x, x') = \sum_{i} \lambda _i \phi _i(x)\phi _i(x')$이므로 $\phi(x) = (\sqrt{\lambda_i}\phi_i(x))_{i = 1}$로 정의하면 좁은 의미의 커널 정의를 충족할 수 있겠네요.  
+
 $\leftarrow$은 그람 행렬과 (넓은 의미의) 커널 간 관계를 밝힌 (정리 1.1)을 이용할 것입니다.  
 내적으로 된 커널의 그람 행렬 $G$는 항상 PSD 행렬입니다. 왜냐하면,  
 $$
@@ -551,3 +552,84 @@ $$
 
 이로써 좁은 의미의 커널은 PSD 커널과 같은 말이 됐습니다.  
 앞으로는 'PSD 커널'이라는 말을 쓰도록 하겠습니다.
+
+### RKHS (Reproducing Kernel Hilbert Space)
+
+(정의 1.25) **RKHS(Reproducing Kernel Hilbert Space)**  
+$\mathcal{X}$에서 $\mathbb{R}$로 가는 함수들로 이루어진 힐베르트 공간 $\mathcal{H}$에 대해,  
+다음 조건을 만족하는 (넓은 의미의) 커널 $k : \mathcal{X} \times \mathcal{X} \rightarrow \mathbb{R}$가 존재하면  
+이 커널 $k$를 reproducing kernel이라고 합니다. 또한, 이 힐베르트 공간 $\mathcal{H}$을 RKHS라고 부릅니다.
+1. $\forall x \in \mathcal{X}, k(\cdot, x) \in \mathcal{H}$
+2. $\forall x \in \mathcal{X}, \forall f \in \mathcal{H}, \lang f(\cdot) , k(\cdot, x)\rang = f(x)$ (reproducing property)
+
+위 정의로부터 reproducing kernel의 성질이 하나 도출되므로 참고하세요.
+
+(정리 1.6) **Reproducing kernel의 성질**  
+$\mathcal{X}$에서 $\mathbb{R}$로 가는 함수들로 이루어진 RKHS 공간 $\mathcal{H}$의 symmetric reproducing kernel $k : \mathcal{X} \times \mathcal{X} \rightarrow \mathbb{R}$에 대해 다음이 성립한다.
+$$\forall x, x' \in \mathcal{X},  \lang k(\cdot, x) , k(\cdot, x')\rang = k(x, x')$$
+
+어찌보면 당연한 결과입니다. 2번 조건의 $f(\cdot)$ 자리에 $k(\cdot, x)$을 끼워 넣으면 되겠네요.
+
+(정리 1.7) **Moore-Aronszajn 정리**  
+공집합이 아닌 어떤 집합 $\mathcal{X}$에 대해 정의된 각각의 PSD 커널 $k : \mathcal{X} \times \mathcal{X} \rightarrow \mathbb{R}$에 대해 $k$를 reproducing kernel로 삼는 고유한 RKHS가 존재한다.  
+역으로, $\mathcal{X}$에서 $\mathbb{R}$로 가는 함수들로 이루어진 모든 RKHS에 대해 그에 해당하는 고유한 PSD reproducing kernel가 존재한다.  
+
+이로써 PSD 커널은 고유함수로 표현될 수 있을뿐만 아니라 고유의 RKHS까지 갖습니다. 이 두 사실을 합치면 흥미로운 결과가 나옵니다.
+
+$$
+f(x) = \lang f, k(\cdot, x) \rang \\
+= \lang f, \sum_{i} \lambda_i \phi_i(\cdot)\phi _i(x) \rang \\
+= \sum_{i}\lambda _i \lang f, \phi_i(\cdot)\rang \phi _i(x) \\
+= \sum_{i}\hat{\lambda}\phi _i(x)
+$$
+
+PSD 커널의 RKHS에 있는 모든 함수 $f : \mathcal{X} \rightarrow \mathbb{R}$는 PSD 커널의 고유함수의 선형사상으로 나타낼 수가 있는 것이죠.
+
+그렇다면 도대체 PSD 커널에 대해 정의되는 RKHS는 어떻게 생겨먹은 공간일까요? 바로 아래처럼 생겼습니다.
+
+$$
+\mathcal{H} = \lbrace f(\cdot) = \sum_{i = 1}^n \alpha_i k(\cdot, x_i) : n \in \mathbb{N}, x_i \in \mathcal{X}, \alpha_i \in \mathbb{R} \rbrace
+$$
+
+즉, $\mathcal{X}$에서 임의의 원소를 뽑아 한 쪽을 채워 둔 커널함수들의 선형결합으로 만들 수 있는 모든 함수들이 다 포함된 공간입니다. (RKHS 조건 1번은 그럼 자동 충족이군요.)  
+
+이 공간에서 내적을 아래와 같이 정의해보죠.
+
+$$
+f(\cdot) = \sum_{i = 1}^n \alpha_i k(\cdot, x_i), g(\cdot) = \sum_{j = 1}^n \alpha'_j k(\cdot, x_j) \\
+\lang f, g \rang = \sum_{i = 1}^n \sum_{j = 1}^{n'} \alpha_i \alpha'_j k(x_i, x'_j)
+$$
+
+이 공간이 내적공간을 넘어서 힐베르트 공간인 것은 받아들이기로 하고, RKHS 조건 2번은 충족하는지 살펴봅시다.
+
+$$
+\lang f(\cdot) , k(\cdot, x)\rang = \lang\sum_{i = 1}^n \alpha_i k(\cdot, x_i), k(\cdot, x)\rang\\
+= (\text{ By Definition }) \sum_{i = 1}^n \alpha_i k(x, x_i)  = f(x)
+$$
+
+깔끔하게 증명이 되었습니다. Moore-Aronszajn 정리에서 RKHS 공간의 유일성이 증명되었으므로  
+지금 살펴본 바로 이 공간이 PSD 커널을 reproducing kernel로 삼는 유일한 RKHS가 됩니다!
+
+이어서 관련된 정리 하나를 더 살펴보면 끝이겠네요.
+
+(정리 1.8) **Representer 정리**  
+공집합이 아닌 어떤 집합 $\mathcal{X}$에 대해 정의된 PSD 커널 $k : \mathcal{X} \times \mathcal{X} \rightarrow \mathbb{R}$과 그에 대응하는 RKHS $\mathcal{H}$가 있다.  
+데이터셋 $\mathcal{D} = \lbrace (x_1, y_1), ..., (x_n, y_n) \in \mathcal{X} \times \mathbb{R}\rbrace$,  
+임의의 loss function $E : (\mathcal{X} \times \mathbb{R})^n \rightarrow \mathbb{R} \cup \lbrace \infty \rbrace$,  
+strictly monotonically 증가함수 $g : [0, \infty) \rightarrow \mathbb{R}$에 대하여 아래 식의 값을 최소화하는 $f \in \mathcal{H}$을 찾는 최적화 문제가 주어졌을 때,
+
+$$
+f^*(\cdot) = \argmin_{f \in \mathcal{H}} \lbrace {E(\mathcal{D}) + g(\lVert f \rVert)} \rbrace
+$$
+
+$f^*$는 아래와 같은 꼴을 지닌다.  
+
+$$
+f^*(\cdot) = \sum_{i = 1}^n \alpha_i k(\cdot, x_i), \alpha_i \in \mathbb{R}
+$$
+
+뭔가 복잡해보이지만, 어떤 PSD 커널의 RKHS를 구성하는 함수에 대해 (함수의 노름이 규제로 붙은) 최적화 문제의 답의 꼴은  
+해당 커널 함수의 한쪽편에 데이터셋 $\mathcal{D}$의 training set 원소를 넣어준 함수들의 선형사상으로 나타난다는 뜻입니다.
+
+바로 앞에서 살펴본 각 PSD 커널에 대해 유일한 RKHS 공간의 원소의 형태와 똑같이 생겼죠.  
+그럼 Representer 정리는 당연한 거 아니냐고 생각할 수 있지만, 이 정리는 정확히 '데이터셋'에 있는 원소들만 고려하면 된다는 점을 짚어주고 있죠.
