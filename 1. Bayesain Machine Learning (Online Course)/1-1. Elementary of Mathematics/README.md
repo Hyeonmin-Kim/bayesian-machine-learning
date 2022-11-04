@@ -11,8 +11,8 @@
 직관적인 개념으로서 측도(measure)란 일정 규칙에 따라 **주어진 집합에 숫자를 부여하는 함수**입니다.  
 예를 들어, 아래와 같이 정의한 집합 $S$에 대한 셈측도(counting measure)는 측도입니다.
 
-(정의 1.1) **셈측도(counting measure)**  
-$ \mu = n(S) (S\text{ is finite}) \text{ or } \infty (S\text{ is infinite})   $
+> (정의 1.1) **셈측도(counting measure)**  
+> $$ `\mu = n(S)\,(S\mathrm{\,is\,finite}) \mathrm{\,or\,} \infty\, (S\mathrm{\,is\,infinite})`$$
 
 ### $\sigma$-field
 
@@ -20,16 +20,15 @@ $ \mu = n(S) (S\text{ is finite}) \text{ or } \infty (S\text{ is infinite})   $
 
 **정의**
 
-(정의 1.2) **sigma field**  
-전체집합 $U$의 멱집합(power set) $2^U$의 원소를 아래 조건에 맞게 잘 골라낸 부분집합 $\mathcal{B}$를 $\sigma$-field라고 부릅니다.
+> (정의 1.2) **sigma field**  
+> 전체집합 $U$의 멱집합(power set) $2^U$의 원소를 아래 조건에 맞게 잘 골라낸 부분집합 $\mathcal{B}$를 $\sigma$-field라고 부릅니다.
+> 1. 공집합을 반드시 포함한다. ( $\phi \in \mathcal{B}$ )
+> 2. 차집합 연산에 대해 닫혀 있다. ( $B \in \mathcal{B} \Rightarrow B^C \in \mathcal{B}$ )
+> 3. 셀 수 있는 합집합 연산에 대해 닫혀 있다. ( $B_i \in \mathcal{B} \Rightarrow \bigcup_{i = 1}^{\infty}B_i \in \mathcal{B}$ )
 
-1. 공집합을 반드시 포함한다. ( $\phi \in \mathcal{B}$ )
-2. 차집합 연산에 대해 닫혀 있다. ( $B \in \mathcal{B} \Rightarrow B^C \in \mathcal{B}$ )
-3. 셀 수 있는 합집합 연산에 대해 닫혀 있다. ( $B_i \in \mathcal{B} \Rightarrow \bigcup_{i = 1}^{\infty}B_i \in \mathcal{B}$ )
-
-예를 들어, $U = \{1, 2, 3\}$에 대하여  
-$A = \{\phi, \{1 \}, \{2, 3 \}, \{1, 2, 3 \}\}$는 $U$의 $\sigma$-field로서 자격이 있지만,  
-$B = \{\phi, \{1 \}, \{2 \}, \{1, 2 \}, \{1, 2, 3 \}\}$는 그렇지 못합니다.
+예를 들어, $U = \lbrace1, 2, 3\rbrace$에 대하여  
+$A = \lbrace\phi, \lbrace1 \rbrace, \lbrace2, 3 \rbrace, \lbrace1, 2, 3 \rbrace\rbrace$는 $U$의 $\sigma$-field로서 자격이 있지만,  
+$B = \lbrace\phi, \lbrace1 \rbrace, \lbrace2 \rbrace, \lbrace1, 2 \rbrace, \lbrace1, 2, 3 \rbrace\rbrace$는 그렇지 못합니다.
 
 $\mathcal{B}$가 $U$로부터 만들어진 $\sigma$-field임을 표현하기 위해 수식으로 $\mathcal{B} = \sigma(U)$와 같이 표현합니다.
 
@@ -56,11 +55,10 @@ $U$가 무한집합이면 $2^U$는 셀 수 없이 무한하기 때문에 $\sigma
 
 **정의**
 
-(정의 1.3) **측도(measure)**  
-Measurable space $(U, \mathcal{B})$에 대해 다음과 같은 성질을 만족하도록 정의된 함수 $\mu : \mathcal{B} \rightarrow [0, \infty] $를 $(U, \mathcal{B})$에 대한 측도라고 합니다.
-
-1. 공집합에 대한 함숫값은 0 : $\mu(\phi) = 0$
-2. 셀 수 있는 서로소 집합에 대한 덧셈 : $\mu(\bigcup_{i = 1}^{\infty}B_i) = \sum_{i = 1}^{\infty}\mu(B_i)$
+> (정의 1.3) **측도(measure)**  
+> Measurable space $(U, \mathcal{B})$에 대해 다음과 같은 성질을 만족하도록 정의된 함수 $\mu : \mathcal{B} \rightarrow [0, \infty] $를 $(U, \mathcal{B})$에 대한 측도라고 합니다.
+> 1. 공집합에 대한 함숫값은 0 : $\mu(\phi) = 0$
+> 2. 셀 수 있는 서로소 집합에 대한 덧셈 : $\mu(\bigcup_{i = 1}^{\infty}B_i) = \sum_{i = 1}^{\infty}\mu(B_i)$
 
 measurable space $(U, \mathcal{B})$에 대해 특정 측도 $\mu$를 정의하고 나면  
 $(U, \mathcal{B}, \mu)$로 구성된 measure space가 정의됩니다.
@@ -75,12 +73,11 @@ $\mu(\Omega) < \infty$이면 측도 $\mu$는 유한 측도(finite measure)가 �
 우리에게 친숙한 측도로는 셈측도뿐만 아니라 **확률(probability) 또한 일종의 측도**입니다.  
 $U$ 자리에 sample space $\Omega$를 넣고, $P(\Omega) = 1$이라는 normalization 조건만 추가해주면 우리에게 친숙한 확률의 정의가 됩니다!
 
-(정의 1.4) **확률(probability)**  
-Sample space $\Omega$와 그에 대한 $\sigma$-field $\mathcal{A}$로 이루어진 measurable space $(\Omega, \mathcal{A})$에 대하여 다음과 같은 성질을 만족하도록 정의된 함수 $P : \mathcal{A} \rightarrow [0, 1] $를 $(\Omega, \mathcal{A})$에 대한 확률이라고 합니다.
-
-1. 공사건에 대한 함숫값은 0 : $P(\phi) = 0$
-2. 셀 수 있는 서로소 사건에 대한 덧셈 : $P(\bigcup_{i = 1}^{\infty}A_i) = \sum_{i = 1}^{\infty}P(A_i)$
-3. **(추가!)** 전사건에 대한 함숫값은 1 : $P(\Omega) = 1$
+> (정의 1.4) **확률(probability)**  
+> Sample space $\Omega$와 그에 대한 $\sigma$-field $\mathcal{A}$로 이루어진 measurable space $(\Omega, \mathcal{A})$에 대하여 다음과 같은 성질을 만족하도록 정의된 함수 $P : \mathcal{A} \rightarrow [0, 1] $를 $(\Omega, \mathcal{A})$에 대한 확률이라고 합니다.
+> 1. 공사건에 대한 함숫값은 0 : $P(\phi) = 0$
+> 2. 셀 수 있는 서로소 사건에 대한 덧셈 : $P(\bigcup_{i = 1}^{\infty}A_i) = \sum_{i = 1}^{\infty}P(A_i)$
+> 3. **(추가!)** 전사건에 대한 함숫값은 1 : $P(\Omega) = 1$
 
 (정의 1.3)과 비교하면서 따져보면 3번 조건이 추가된 것 빼고는 별다를 게 없습니다.  
 확률이 측도이기 때문에 측도론을 훑어본 것이죠!
@@ -98,12 +95,12 @@ Sample space $\Omega$와 그에 대한 $\sigma$-field $\mathcal{A}$로 이루어
 
 ### 정의
 
-(정의 1.5) **확률과정(random process)**  
-확률측도 $P$가 정의된 공통의 measure space $(\Omega, \mathcal{A}, P)$에 대해 정의된 확률변수의 indexed family*를 뜻합니다.  
-이때, 해당 족에 포함된 모든 확률변수는 공통의 measurable space $(S, \Sigma)$로의 사상(mapping)이어야 합니다.  
-Indexing에 사용한 index set을 $T$**라고 하면 다음과 같이 나타낼 수 있습니다.    
-$\lbrace X_t(w) : \Omega \rightarrow S | t \in T \rbrace$  
-각 확률변수의 공역인 $S$는 state space라고 부릅니다.
+> (정의 1.5) **확률과정(random process)**  
+> 확률측도 $P$가 정의된 공통의 measure space $(\Omega, \mathcal{A}, P)$에 대해 정의된 확률변수의 indexed family*를 뜻합니다.  
+> 이때, 해당 족에 포함된 모든 확률변수는 공통의 measurable space $(S, \Sigma)$로의 사상(mapping)이어야 합니다.  
+> Indexing에 사용한 index set을 $T$**라고 하면 다음과 같이 나타낼 수 있습니다.    
+> $\lbrace X_t(w) : \Omega \rightarrow S | t \in T \rbrace$  
+> 각 확률변수의 공역인 $S$는 state space라고 부릅니다.
 
 *Indexed family란 index set의 원소를 index로 이용하여 번호를 붙인 원소들의 집합을 뜻합니다.  
 **전통적으로 T에는 시간을 표현하는 실수 또는 자연수 집합을 사용하는 경우가 많지만, 시간 이외의 다른 뜻을 가진 다양한 index를 활용할 수도 있습니다.
@@ -113,16 +110,16 @@ $\lbrace X_t(w) : \Omega \rightarrow S | t \in T \rbrace$
 > 위 (정의 1.5)에서 sample space $\Omega$에 대해 오해하기 쉬운 부분이 있어서 예시를 통해 짚고 넘어가겠습니다.  
 >   
 > 앞/뒷면이 나올 확률이 1/2로 같은 동전을 무한 번 던지는 실험에 대해서 확률과정을 아래와 같이 정의합시다.  
-> $\lbrace X_t(w) : \Omega \rightarrow \{0, 1\} = (\text{if } t\text{th coin head then 1, else 0}) | t \in \mathbb{N} \rbrace$  
+> $\lbrace X_t(w) : \Omega \rightarrow \{0, 1\} = (\mathrm{if } t\mathrm{th coin head then 1, else 0}) | t \in \mathbb{N} \rbrace$  
 >   
 > 여기서 sample space $\Omega$를 구성하는 sample point $w$로 적합한 것은  
 > ❌ 한 번의 동전 뒤집기에 대한 결과인 {0}이나 {1}이 아니라  
 > ✔️ 전체 동전 뒤집기에 대한 결과인 {0, 1, 0, 0, 1, 1, ...}이나 {1, 0, 0, 0, 1, 1, ...}입니다.   
 
 아래와 같은 유한차원 확률분포(Finite-dimensional probability distribution)를 이용하면 확률과정을 규정할 수 있습니다.  
-$P((X_{t_1}, ..., X_{t_k}) \in B) \text{ for any } B, k$  
+$P((X_{t_1}, ..., X_{t_k}) \in B) \mathrm{\,for\,any\,} B, k$  
 여기서 $B$는 state space $S$의 cartesian power $S^k = S \times S \times ... \times S$의 부분집합을 의미합니다.  
-다만, [stack exchang 질의응답](https://math.stackexchange.com/questions/3144894/what-does-it-mean-the-finite-dimensional-distribution-determine-the-random-pro)을 살펴보면 같은 유한차원 확률분포를 가지는 서로 다른 확률과정도 존재하는 것으로 보이니 엄밀하지는 않은 것으로 보입니다.
+다만, [stack exchange 질의응답](https://math.stackexchange.com/questions/3144894/what-does-it-mean-the-finite-dimensional-distribution-determine-the-random-pro)을 살펴보면 같은 유한차원 확률분포를 가지는 서로 다른 확률과정도 존재하는 것으로 보이니 엄밀하지는 않은 것으로 보입니다.
 
 ### 확률과정을 보는 두 가지 관점: 확률변수의 집합, 함수공간으로의 사상
 
@@ -165,7 +162,7 @@ $X_t : T \times \Omega \rightarrow \mathbb{R}$
 확률변수나 확률분포와 마찬가지로 확률과정에서도 모멘트가 정의됩니다.  
 눈여겨볼 점은, 모두 시점 1개나 2개에 대한 함수라는 것입니다.
 
-- mean function: $m_X(t)\equiv E(X_t) = \sum_{x}^{}xp_{x_{t}}(x) \text{ (discrete) or } \int xf_{x_{t}}(x)dx \text{ (continuous)}$  
+- mean function: $m_X(t)\equiv E(X_t) = \sum_{x}^{}xp_{x_{t}}(x) \mathrm{\,(discrete)\,or\,} \int xf_{x_{t}}(x)dx \mathrm{\,(continuous)}$  
 $t  = t_0$일 때에 해당하는 확률변수 $X_{t_0}$를 가져와 해당 확률변수의 평균을 구한다고 생각하면 쉽습니다.
 - **auto-correlation function(acf)**: $R_X(t, s) = E[X_tX_s]$  
 확률변수에서 correlation 식과 같지만 같은 확률과정 속 서로 다른 두 시점의 확률변수를 가져온다는 점만 다릅니다.
@@ -176,10 +173,9 @@ acvf와 식이 비슷하지만 이번엔 서로 다른 두 확률과정에서 �
 
 ### Stationarity
 
-(정의 1.6) **(Strong) stationary random process**
-
-어떤 확률과정 $\{X_t(w) : \Omega \rightarrow S | t \in T \}$가 모든 $\tau, k, t_1, ..., t_k$에 대해  
-$P((X_{t_1 + \tau}, ..., X_{t_k + \tau}) \in B) = P((X_{t_1}, ..., X_{t_k}) \in B)$이면 이 확률과정은 stationary하다고 말합니다.
+> (정의 1.6) **(Strong) stationary random process**
+> 어떤 확률과정 $\{X_t(w) : \Omega \rightarrow S | t \in T \}$가 모든 $\tau, k, t_1, ..., t_k$에 대해  
+> $P((X_{t_1 + \tau}, ..., X_{t_k + \tau}) \in B) = P((X_{t_1}, ..., X_{t_k}) \in B)$이면 이 확률과정은 stationary하다고 말합니다.
 
 Stationary random process의 mean function, acvf, ccvf는 모두 stationary합니다. (생각해보면 당연합니다.)  
 mean : $m_X(t + \tau) = m_X(t)$  
@@ -195,11 +191,11 @@ acvf: $C_X(t, s) = C_X(\tau = t - s)$
 Strong stationarity애서는 정의에서 위 성질이 도출되었다면,  
 반대로 wide-sense stationarity룰 츙족하기 위해서는 위 성질을 충족하면 됩니다.
 
-(정의 1.7) **Wide-sense stationary random process**  
-어떤 확률과정 $\{X_t(w) : \Omega \rightarrow S | t \in T \}$가 모든 $t, s \in T, \tau$에 대해  
-다음 조건을 만족하면 이 확률과정은 weak stationary하다고 말합니다.  
-- mean : $m_X(t + \tau) = m_X(t)$   
-- acvf : $R_X(t + \tau, s + \tau) = R_X(t, s)$
+> (정의 1.7) **Wide-sense stationary random process**  
+> 어떤 확률과정 $\{X_t(w) : \Omega \rightarrow S | t \in T \}$가 모든 $t, s \in T, \tau$에 대해  
+> 다음 조건을 만족하면 이 확률과정은 weak stationary하다고 말합니다.  
+> - mean : $m_X(t + \tau) = m_X(t)$   
+> - acvf : $R_X(t + \tau, s + \tau) = R_X(t, s)$
 
 acf 조건이 빠진 이유는 mean 조건과 acvf 조건에서 acf 조건을 유도할 수 있기 때문입니다.  
 
@@ -216,8 +212,8 @@ acf 조건이 빠진 이유는 mean 조건과 acvf 조건에서 acf 조건을 �
 다음 8가지 조건을 만족하는 (1) 두 원소 간 덧셈, (2) 체(field) $F$ 중 임의의 스칼라와의 곱셈 연산에 대해 닫혀 있는 집합 $V$를  
 $F$에 대한 벡터공간이라고 합니다.
 1. (덧셈 결합법칙) $u + (v + w) = (u + v) + w$
-3. (덧셈 항등원) $\exist 0 \text{ s.t. for } \forall v \in V, v + 0 = v$
-4. (덧셈 역원) $\exist -v \text{ for } \forall v \in V \text{ s.t. } v + (-v) = 0$
+3. (덧셈 항등원) $\exists 0 \mathrm{\,s.t.\,for\,} \forall v \in V, v + 0 = v$
+4. (덧셈 역원) $\exists -v \mathrm{\,for\,} \forall v \in V \mathrm{ s.t. } v + (-v) = 0$
 2. (덧셈 교환법칙) $u + v = v + u$
 5. (스칼라곱의 분배법칙 1) $c(x + y) = cx + cy$
 6. (스칼라곱의 분배법칙 2) $(c_1 + c_2)x = c_1x + c_2x$
@@ -243,14 +239,14 @@ $F$에 대한 벡터공간 $V$에 대해 거리함수의 조건에 아래 조건
 1. $\lVert \alpha x \rVert = \lvert \alpha \rvert \lVert x \rVert$
 
 (정의 1.11) **내적공간(Inner Product Space)**  
-$F$($\mathbb{R}$ 또는 $\mathbb{C}$ 중 하나)에 대한 벡터공간 $V$의 두 벡터를 받는 다음 조건을 만족하는 함수(즉, 내적) $\langle \centerdot, \centerdot \rang : V \times V \rightarrow F$가 정의되어 있다면  
+$F$($\mathbb{R}$ 또는 $\mathbb{C}$ 중 하나)에 대한 벡터공간 $V$의 두 벡터를 받는 다음 조건을 만족하는 함수(즉, 내적) $\langle \centerdot, \centerdot \rangle : V \times V \rightarrow F$가 정의되어 있다면  
 해당 벡터공간을 내적공간이라고 합니다.  
-1. (켤레대칭) $\lang x, y \rang = \overline{\lang y, x\rang}$
-2. (선형성) $\lang ax + by, z\rang = a\lang x, z\rang + b\lang y, z\rang$
-3. $\text{if } x \neq 0, \lang x, x\rang > 0$
+1. (켤레대칭) $\langle x, y \rangle = \overline{\langle y, x\rangle}$
+2. (선형성) $\langle ax + by, z\rangle = a\langle x, z\rangle + b\langle y, z\rangle$
+3. $\mathrm{if } x \neq 0, \langle x, x\rangle > 0$
 
 내적이 정의되어 있으면 이를 이용하여 아래와 같이 필요한 5가지 조건을 모두 갖춘 노름을 만들 수 있습니다.  
-$\lVert x \rVert = \sqrt{\lang x, x \rang}$  
+$\lVert x \rVert = \sqrt{\langle x, x \rangle}$  
 
 따라서 내적공간은 자동으로 노름공간입니다.
 
@@ -263,14 +259,14 @@ $\lVert x \rVert = \sqrt{\lang x, x \rang}$
 
 그렇다면 완비성이 무엇인지 알아야겠죠?
 
-(정의 1.14) **완비성(completeness)**
+(정의 1.14) **완비성(completeness)**  
 어떤 집합 $V$로 만들 수 있는 모든 코시 수열이 해당 집합 $V$의 원소로 수렴하면, 집합 $V$는 완비성을 갖추었다고 말합니다.  
 코시 수열(cauchy sequence)이란, 유한개의 원소를 제외한 나머지 사이의 거리가 (아무리 작은) 임의의 양수보다 작은 수열을 뜻합니다.
 
 유리수의 집합 $\mathbb{Q}$는 완비성을 갖추었을까요?  
 우리는 $\pi$가 무리수라는 것을 알고 있습니다.  
 $\mathbb{Q}$로 아래와 같은 수열을 만들어볼까요?  
-$a_n \equiv (\pi\text{의 소숫점 n번째 자리까지 나타낸 유한소수}) (n \in \mathbb{N})$  
+$a_n \equiv (\pi\mathrm{의\,소숫점\,n번째\,자리까지\,나타낸\,유한소수}) (n \in \mathbb{N})$  
 그렇다면, 이 수열은 분명 $\mathbb{Q}$의 원소로 이루어진 수열(정확히는 코시 수열)인데,  
 정작 그 수렴값인 $\pi$는 $\mathbb{Q}$에 없습니다.  
 결국 $\mathbb{Q}$는 완비성을 갖추지 못한 것이죠.
@@ -296,30 +292,30 @@ $\sum_{n} \lvert x_n \rvert^p < \infty$
 
 $l^p$ 공간은 노름이 정의되는 노름공간입니다.  
 워낙 유명한 $l^p$ 노름이니, 아래 형태를 적어두겠습니다.  
-$\lVert x \rVert _p = (\sum_{n} \lvert x_n \rvert^p)^{1 / p}$  
+$`\lVert x \rVert _p = (\sum_{n} \lvert x_n \rvert^p)^{1 / p}`$  
 
 $p = 2$일 때, 즉 $l^2$ 공간은 아래와 같은 내적이 정의된 힐베르트 공간입니다.  
 (사실 $p \neq 2$일 때에는 내적이 정의되지 않습니다. [귀류법을 이용한 증명](http://mathonline.wikidot.com/proof-that-p-when-p-2-is-an-inner-product-space)도 찾아볼 수 있습니다.)  
-$\lang x, y \rang = \sum_{n} \overline{x_n}y_n$
+$\langle x, y \rangle = \sum_{n} \overline{x_n}y_n$
 
 $l^2$의 완비성 증명을 공부하지는 않겠습니다.
 
 **$L^2$ 공간**
 
 (정의 1.16) **$L^p$ 공간**  
-다음을 만족하는 모든 함수 $f : S \rightarrow \mathbb{R} \text{ or } \mathbb{C}$의 집합을 $L^p$ 공간이라고 부른다. ($1 \le p < \infty$)  
+다음을 만족하는 모든 함수 $f : S \rightarrow \mathbb{R} \mathrm{ or } \mathbb{C}$의 집합을 $L^p$ 공간이라고 부른다. ($1 \le p < \infty$)  
 $\int_{S} \lvert f \rvert^p d\mu < \infty$  
 여기에서 $\mu$는 $f$의 정의역 $S$에 대해 정의된 측도입니다.
 
 마찬가지로 이중 $L^2$ 공간만이 내적이 정의될 수 있는 힐베르트 공간입니다.  
 내적은 아래와 같습니다.  
-$\lang f, g \rang = \int_{S} f(x)\overline{g(x)}d\mu(x)$
+$\langle f, g \rangle = \int_{S} f(x)\overline{g(x)}d\mu(x)$
 
 추가적으로로 $p = \infty$일 때의 경우가 뒤에서 잠시 등장해서, 뜻만 간단히 살펴보고 넘어가겠습니다.  
 (물론 $L^\infty$ 공간은 힐베르트 공간이 아닌 노름공간입니다.)
 
 $p \rightarrow \infty$하면서 $L^p$ 노름은 아래와 같은 '본질적 상한(essential supremum)'의 형태를 띈다고 합니다.  
-$\lVert f \rVert = \text{ess sup}_{x \in S} \lvert f(x) \rvert$  
+$\lVert f \rVert = \mathrm{ess sup}_{x \in S} \lvert f(x) \rvert$  
 본질적 상한 $\alpha$이란, $\lvert f(x^*) \rvert > \alpha$를 만족하는 $\alpha$의 집합의 측도가 0이 되는 값을 뜻합니다.  
 그러니까 '거의(사실상) 상한'이라는 것이죠.
 
@@ -341,7 +337,7 @@ $\lVert f \rVert = \text{ess sup}_{x \in S} \lvert f(x) \rvert$
 커널 $k : \mathcal{X} \times \mathcal{X} \rightarrow \mathbb{R}$과 $\mathcal{X}$에서 뽑은 $n$개의 원소 $\mathcal{C} = \lbrace x_1, x_2, ..., x_n \rbrace$에 대해  
 $K_{ij} = k(x_i, x_j)$를 만족하는 $n \times n$의 정방행렬을 뜻합니다.
 
-*선형대수학에서 그람 행렬은 사실 $k$가 내적일 때를 의미하지만, textbook의 정의를 따르기 위해 불가피하게 용어를 abuse하게 됩니다.
+*선형대수학에서 그람 행렬은 사실 $k$가 내적일 때를 의미하지만, mathrmbook의 정의를 따르기 위해 불가피하게 용어를 abuse하게 됩니다.
 
 (정의 1.19) **적분변환 연산자(Integral Transform Operator)**  
 커널 $k : \mathcal{X} \times \mathcal{X} \rightarrow \mathbb{R}$에 대해 함수 $f : \mathcal{X} \rightarrow \mathbb{R}$를 다음을 만족하는 함수 $T_kf : \mathcal{X} \rightarrow \mathbb{R}$로 변환해주는 연산자 $T_k$를 적분변환 연산자라고 부릅니다.
@@ -358,9 +354,7 @@ $$(T_kf)(x) : \mathcal{X} \rightarrow \mathbb{R} = \int_{\mathcal{X}}k(x, x')f(x
 
 (정의 1.20) **PSD 커널**  
 임의의 $\mathcal{C} = \lbrace x_1, x_2, ..., x_n \rbrace \subset \mathcal{X}$과 $c = (c_1, c_2, ..., c_n)' \in \mathbb{R}^n$에 대해 다음을 만족하는 대칭(symmetric) 커널 $k : \mathcal{X} \times \mathcal{X} \rightarrow \mathbb{R}$를 PSD(Positive Semidefinite) 커널이라고 합니다.  
-$$ 
-\sum_{i=1}^n \sum_{j=1}^n c_ic_jK(x_i, x_j) \ge 0 \\
-$$
+$$ \sum_{i=1}^n \sum_{j=1}^n c_ic_jK(x_i, x_j) \ge 0  $$
 
 *여기서 대칭이란 $K(x_i, x_j) = K(x_j, x_i)$를 뜻합니다.
 
@@ -373,7 +367,7 @@ $K$를 커널함수의 그람 행렬이라고 하면 $ \sum_{i=1}^n \sum_{j=1}^n
 
 > ❓ **참고 : PSD 커널의 다른 정의(Mercer's condition)**  
 > 강의에서는 PSD 커널이 만족해야 하는 조건을 실수 벡터가 아닌 $L^2$ 함수 $f$로 정의합니다.  
-> $$\int k(x, x')f(x)f(x')d\mu(x)d\mu(x') \ge 0 \text{ for } \forall f \in L^2$$ 
+> $$\int k(x, x')f(x)f(x')d\mu(x)d\mu(x') \ge 0 \mathrm{ for } \forall f \in L^2$$ 
 > 이 조건을 만족하는 커널 $k$에 대해 "Mercer's condition을 충족했다"라고 표현합니다.  
 > Mercer's condition과 (정의 1.19)의 조건이 동치임은 Mercer, Moore 등의 수학자가 밝혀놓았으니 받아들이기로 합니다.  
 
@@ -387,9 +381,9 @@ $K$를 커널함수의 그람 행렬이라고 하면 $ \sum_{i=1}^n \sum_{j=1}^n
 
 (정의 1.21) **고유함수, 고윳값**  
 커널 $k : \mathcal{X} \times \mathcal{X} \rightarrow \mathbb{R}$와 $k$에서 도출한 적분변환 연산자 $T_k$와 어떤 함수 $\phi : \mathcal{X} \rightarrow \mathbb{R}$가 다음 조건을 만족시키면   
-함수 $\phi$를 커널 $k$ 또는 연산자 $T_k$의 고유함수(eigenfunction), $\lambda$를 고윳값(eigenvalue)라고 부른다.
+함수 $\phi$를 커널 $k$ 또는 연산자 $T_k$의 고유함수(eigenfunction), $\lambda$를 고윳값(eigenvalue)라고 부른다.  
 $$
-T_k\phi = \lambda\phi, \text{ thus } \int_{\mathcal{X}}k(x, x')f(x')d\mu(x') = \lambda\phi(x) \text{ for } \forall x \in \mathcal{X}
+T_k\phi = \lambda\phi, \mathrm{ thus } \int_{\mathcal{X}}k(x, x')f(x')d\mu(x') = \lambda\phi(x) \mathrm{ for } \forall x \in \mathcal{X}
 $$
 
 정의가 아주 익숙한 형태입니다. 행렬에서 고유벡터를 정의하는 식 $Ax = \lambda x$와 비슷하죠?
@@ -399,7 +393,7 @@ $$
 선형대수학 공부할 때를 떠올려보면, 고유벡터와 고윳값을 열심히 찾은 이유는   
 결국 행렬의 대각화 가부를 따지고 가능한 경우 행렬을 대각화하기 위함이었습니다. 기억나시나요?  
 행렬이 대각화 가능하다면, 행렬 $A$의 고윳값 $\lambda _ i$와 고유벡터 $v_i$를 찾아 $A = P\Lambda P^t = \sum_{i}\lambda _i v_i v_i^T$와 같이 나타냈습니다.  
-(즉, $Ax = \sum_{i}\lambda _i v_i \lang v_i, x \rang$)  
+(즉, $Ax = \sum_{i}\lambda_i v_i \langle v_i, x \rangle$)  
 
 
 마찬가지로 적분변환 연산자 $T_k$를 고유함수와 고윳값을 이용해 분해해보고자 합니다.  
@@ -431,14 +425,14 @@ Mercer's theorem은
 PSD 커널 $k$에 대한 $T_k$을 '대각화'해보는 것입니다.
 
 $$
-T_k(\cdot) = \sum_{i}\lambda _i \phi _ i \lang \phi _ i, \cdot \rang \\
-(T_k(f)) = \sum_{i}\lambda _i \phi _ i \lang \phi _ i, f \rang \\
+T_k(\cdot) = \sum_{i}\lambda _i \phi _ i \langle \phi _ i, \cdot \rangle \\
+(T_k(f)) = \sum_{i}\lambda _i \phi _ i \langle \phi _ i, f \rangle \\
 (T_k(f))(x) = \sum_{i}\lambda _i \lbrace\int_{\mathcal{X}}\phi _ i(x')f(x')d\mu(x')\rbrace \phi _ i(x) \\
 (T_k(f))(x) =  \int_{\mathcal{X}} \lbrace \sum_{i} \lambda _i \phi _ i(x)\phi _ i(x') \rbrace f(x')d\mu(x')
 $$
 
 맨 마지막 줄을 살펴보면 $T_k$의 정의에 따라 중괄호 부분이 바로 커널 $k(x, x')이 들어갈 자리가 됨을 알 수 있습니다.  
-$k(x, x') = \sum_{i} \lambda _i \phi _ i(x)\phi _ i(x')$  
+$k(x, x') = \sum_{i} \lambda_i \phi _ i(x)\phi_i(x')$  
 이로써 Mercer의 정리 2번에 등장하는 꼴이 됩니다.  
 이로써 $T_k$의 고유함수가 왜 $k$를 표현하는 데 사용되는지 '대충은' 알 수 있겠네요.
 
@@ -450,7 +444,7 @@ Mercer의 정리를 살펴보았으므로 이제 드디어 강의에서 제시�
 공집합이 아닌 어떤 집합 $\mathcal{X}$에 대한 어떤 함수 $k : \mathcal{X} \times \mathcal{X} \rightarrow \mathbb{R}$에 대해,  
 다음을 만족하는 어떤 힐베르트 공간 $\mathcal{H}$에 대한 사상(함수) $\phi : \mathcal{X} \rightarrow \mathcal{H}$가 존재한다면  
 f를 커널 혹은 커널 함수라고 부른다.  
-$k(x, x') = \lang \phi(x), \phi(x') \rang$
+$k(x, x') = \langle \phi(x), \phi(x') \rangle$
 
 찬찬히 살펴보면, 어떤 집합  $\mathcal{X}$로부터 두 개의 원소를 받아 실수를 돌려주는 함수가  
 마치 두 원소를 어떤 힐베르트 공간으로 보내 내적한 결과로 해석될 수 있다면  
@@ -471,12 +465,10 @@ $K(x, x') = (x^Ty +\gamma)^n, x, y$
 [일반적인 경우에 대한 증명](https://en.wikipedia.org/wiki/Polynomial_kernel#definition)이 궁금할 경우 링크를 참조하고,  
 간단히 $\gamma = 0, n = 2$일 때를 살펴봅시다.
 
-$$
-k(x, y) = (x^Ty)^2 = (\sum_{i = 1}^n x_iy_i)^2 \\
+$$k(x, y) = (x^Ty)^2 = (\sum_{i = 1}^n x_iy_i)^2 \\
 = \sum_{i = 1}^n (x_i^2)(y_i^2) + 2\sum_{i = 1}^n\sum_{j = 1}^{i - 1}(x_iy_i)(x_jy_j) \\
 = \sum_{i = 1}^n (x_i^2)(y_i^2) + \sum_{i = 1}^n\sum_{j = 1}^{i - 1}(\sqrt{2}x_ix_j)(\sqrt{2}y_iy_j) \\
-\text{Thus, } \phi(x) = (x_i)_{i = 1}^{n} \odot (\sqrt{2}x_ix_j)_{i < j}^{n} = (x_1, x_2, ..., x_n, \sqrt{2}x_1x_2, \sqrt{2}x_1x_3, ..., \sqrt{2}x_{n - 1}x_n)
-$$
+\mathrm{Thus, } \phi(x) = (x_i)_{i = 1}^{n} \odot (\sqrt{2}x_ix_j)_{i < j}^{n} = (x_1, x_2, ..., x_n, \sqrt{2}x_1x_2, \sqrt{2}x_1x_3, ..., \sqrt{2}x_{n - 1}x_n)$$
 여기서 $\odot$은 두 벡터를 이어붙여준다는 의미로 사용하였습니다.
 
 즉, 연산 자체는 꽤 간단해보이는 다항 커널은 사실 $n$차원 벡터를 훨씬 더 높은 차원의 힐베르트 공간으로 옮겨 내적하는 것과 동일한 효과를 내고 있다는 것이죠.  
@@ -491,12 +483,12 @@ $K(x, x') = \exp(-{{\lVert x - x' \rVert}^2\over{2\sigma ^ 2}})$
 
 $$
 k(x, y) = \exp(-{{\lVert x - x' \rVert}^2\over{2}}) \\
-\text{Since } {\lVert x - x' \rVert}^2 = \lang x - x', x - x'\rang = \lang x, x\rang + \lang x', x'\rang + 2\lang x, x'\rang = {\lVert x \rVert}^2 +{\lVert x' \rVert}^2 + 2 x^Tx', \\
+\mathrm{Since } {\lVert x - x' \rVert}^2 = \langle x - x', x - x'\rangle = \langle x, x\rangle + \langle x', x'\rangle + 2\langle x, x'\rangle = {\lVert x \rVert}^2 +{\lVert x' \rVert}^2 + 2 x^Tx', \\
 k(x, y) = \exp(x^Tx')\exp(-{1\over2}{\lVert x \rVert}^2)\exp(-{1\over2}{\lVert x' \rVert}^2) \\
-= [\sum_{j=0}^{\infty}{(x^Tx')^j \over j!}]\exp(-{1\over2}{\lVert x \rVert}^2)\exp(-{1\over2}{\lVert x' \rVert}^2) \text{ (Applied Taylor's Expansion)}\\
-= [\sum_{j=0}^{\infty} {1 \over j!}\sum_{\Sigma n_i = j} {j \choose n_1, n_2, ..., n_k}\prod_{i = 1}^k x_ix'_i]\exp(-{1\over2}{\lVert x \rVert}^2)\exp(-{1\over2}{\lVert x' \rVert}^2) \text{ (Applied Multinomial Expansion)}\\
+= [\sum_{j=0}^{\infty}{(x^Tx')^j \over j!}]\exp(-{1\over2}{\lVert x \rVert}^2)\exp(-{1\over2}{\lVert x' \rVert}^2) \mathrm{ (Applied Taylor's Expansion)}\\
+= [\sum_{j=0}^{\infty} {1 \over j!}\sum_{\Sigma n_i = j} {j \choose n_1, n_2, ..., n_k}\prod_{i = 1}^k x_ix'_i]\exp(-{1\over2}{\lVert x \rVert}^2)\exp(-{1\over2}{\lVert x' \rVert}^2) \mathrm{ (Applied Multinomial Expansion)}\\
 = \sum_{j=0}^{\infty}\sum_{\Sigma n_i = j}\exp(-{1\over2}{\lVert x \rVert}^2){x_1^{n_1}x_2^{n_2}...x_k^{n_k} \over \sqrt{n_1!n_2!...n_k!}}\exp(-{1\over2}{\lVert x' \rVert}^2){{x'}_1^{n_1}{x'}_2^{n_2}...{x'}_k^{n_k} \over \sqrt{n_1!n_2!...n_k!}} \\
-\text{Thus, } \phi(x) = \exp(-{1\over2}{\lVert x \rVert}^2)[({x_1^{n_1}x_2^{n_2}...x_k^{n_k} \over \sqrt{n_1!n_2!...n_k!}})_{\Sigma n_i = 0} \odot ({x_1^{n_1}x_2^{n_2}...x_k^{n_k} \over \sqrt{n_1!n_2!...n_k!}})_{\Sigma n_i = 1} \odot ...]
+\mathrm{Thus, } \phi(x) = \exp(-{1\over2}{\lVert x \rVert}^2)[({x_1^{n_1}x_2^{n_2}...x_k^{n_k} \over \sqrt{n_1!n_2!...n_k!}})_{\Sigma n_i = 0} \odot ({x_1^{n_1}x_2^{n_2}...x_k^{n_k} \over \sqrt{n_1!n_2!...n_k!}})_{\Sigma n_i = 1} \odot ...]
 $$
 
 RBF 커널은 $k$차원(유한차원)의 벡터를 무한차원의 힐베르트 공간으로 보냅니다.  
@@ -510,13 +502,13 @@ $\phi$ 함수를 보면 벡터가 끊임없이 이어지는 것을 볼 수 있�
 직관: 덧셈의 경우는 직관적입니다. 애초에 내적의 합은 합의 내적으로 바꿀 수 있는 게 내적의 정의상 성질이니까요!  
 곱셈의 경우는 더 복잡합니다. 내적의 곱은 곱의 내적으로 바꿀 수 없으니까요.  
 두 커널함수의 공역이 되는 힐베르트 공간이 $\mathbb{R}^N$ 공간인 경우를 예시로 들어볼까요?  
-(그렇다면 $\mathbb{R}^N$ 공간에서 정의된 내적인 $\lang x, y \rang = \sum_{i = 1}^N x_iy_i$을 쓰면 되겠죠?)  
+(그렇다면 $\mathbb{R}^N$ 공간에서 정의된 내적인 $\langle x, y \rangle = \sum_{i = 1}^N x_iy_i$을 쓰면 되겠죠?)  
 
 $$
-f(x, x')g(x, x) = \lang \phi^1(x) , \phi^1(x') \rang \lang \phi^2(x) , \phi^2(x') \rang \\
+f(x, x')g(x, x) = \langle \phi^1(x) , \phi^1(x') \rangle \langle \phi^2(x) , \phi^2(x') \rangle \\
 = (\sum_{i = 1}^N\phi^1_i(x)\phi^1_i(x'))(\sum_{j = 1}^N\phi^2_j(x)\phi^2_j(x')) \\
 = \sum_{i, j}(\phi^1_i(x)\phi^2_j(x))(\phi^1_i(x')\phi^2_j(x')) \\
-\text{Thus, } \phi(x) = (\phi^1_i(x)\phi^2_j(x))_{i, j}
+\mathrm{Thus, } \phi(x) = (\phi^1_i(x)\phi^2_j(x))_{i, j}
 $$
 
 위와 같이 곱셈의 교환법칙을 이용하여 새로운 $\phi$ 함수를 구성해줄 수 있다는 느낌만 이해하면 될 것 같습니다.
@@ -546,7 +538,7 @@ $K(x, x') = \sum_{i} \lambda _i \phi _i(x)\phi _i(x')$이므로 $\phi(x) = (\sqr
 $\leftarrow$은 그람 행렬과 (넓은 의미의) 커널 간 관계를 밝힌 (정리 1.1)을 이용할 것입니다.  
 내적으로 된 커널의 그람 행렬 $G$는 항상 PSD 행렬입니다. 왜냐하면,  
 $$
-v^T G v = \sum_{i, j} v_i v_j \lang \phi(x_i), \phi(x_j) \rang = \sum_{i, j} \lang v_i\phi(x_i), v_j\phi(x_j)\rang = \lang \sum_{i} v_i\phi(x_i), \sum_{j} v_j\phi(x_j)\rang = \lVert \sum_{i} v_i\phi(x_i) \rVert \ge 0.
+v^T G v = \sum_{i, j} v_i v_j \langle \phi(x_i), \phi(x_j) \rangle = \sum_{i, j} \langle v_i\phi(x_i), v_j\phi(x_j)\rangle = \langle \sum_{i} v_i\phi(x_i), \sum_{j} v_j\phi(x_j)\rangle = \lVert \sum_{i} v_i\phi(x_i) \rVert \ge 0.
 $$
 (정리 1.1)에 따라 좁은 의미의 커널은 어떤 경우에도 PSD 그람 행렬을 갖기 때문에 PSD 커널입니다. [끝]
 
@@ -560,13 +552,13 @@ $\mathcal{X}$에서 $\mathbb{R}$로 가는 함수들로 이루어진 힐베르�
 다음 조건을 만족하는 (넓은 의미의) 커널 $k : \mathcal{X} \times \mathcal{X} \rightarrow \mathbb{R}$가 존재하면  
 이 커널 $k$를 reproducing kernel이라고 합니다. 또한, 이 힐베르트 공간 $\mathcal{H}$을 RKHS라고 부릅니다.
 1. $\forall x \in \mathcal{X}, k(\cdot, x) \in \mathcal{H}$
-2. $\forall x \in \mathcal{X}, \forall f \in \mathcal{H}, \lang f(\cdot) , k(\cdot, x)\rang = f(x)$ (reproducing property)
+2. $\forall x \in \mathcal{X}, \forall f \in \mathcal{H}, \langle f(\cdot) , k(\cdot, x)\rangle = f(x)$ (reproducing property)
 
 위 정의로부터 reproducing kernel의 성질이 하나 도출되므로 참고하세요.
 
 (정리 1.6) **Reproducing kernel의 성질**  
 $\mathcal{X}$에서 $\mathbb{R}$로 가는 함수들로 이루어진 RKHS 공간 $\mathcal{H}$의 symmetric reproducing kernel $k : \mathcal{X} \times \mathcal{X} \rightarrow \mathbb{R}$에 대해 다음이 성립한다.
-$$\forall x, x' \in \mathcal{X},  \lang k(\cdot, x) , k(\cdot, x')\rang = k(x, x')$$
+$$\forall x, x' \in \mathcal{X},  \langle k(\cdot, x) , k(\cdot, x')\rangle = k(x, x')$$
 
 어찌보면 당연한 결과입니다. 2번 조건의 $f(\cdot)$ 자리에 $k(\cdot, x)$을 끼워 넣으면 되겠네요.
 
@@ -577,9 +569,9 @@ $$\forall x, x' \in \mathcal{X},  \lang k(\cdot, x) , k(\cdot, x')\rang = k(x, x
 이로써 PSD 커널은 고유함수로 표현될 수 있을뿐만 아니라 고유의 RKHS까지 갖습니다. 이 두 사실을 합치면 흥미로운 결과가 나옵니다.
 
 $$
-f(x) = \lang f, k(\cdot, x) \rang \\
-= \lang f, \sum_{i} \lambda_i \phi_i(\cdot)\phi _i(x) \rang \\
-= \sum_{i}\lambda _i \lang f, \phi_i(\cdot)\rang \phi _i(x) \\
+f(x) = \langle f, k(\cdot, x) \rangle \\
+= \langle f, \sum_{i} \lambda_i \phi_i(\cdot)\phi _i(x) \rangle \\
+= \sum_{i}\lambda _i \langle f, \phi_i(\cdot)\rangle \phi _i(x) \\
 = \sum_{i}\hat{\lambda}\phi _i(x)
 $$
 
@@ -597,14 +589,14 @@ $$
 
 $$
 f(\cdot) = \sum_{i = 1}^n \alpha_i k(\cdot, x_i), g(\cdot) = \sum_{j = 1}^n \alpha'_j k(\cdot, x_j) \\
-\lang f, g \rang = \sum_{i = 1}^n \sum_{j = 1}^{n'} \alpha_i \alpha'_j k(x_i, x'_j)
+\langle f, g \rangle = \sum_{i = 1}^n \sum_{j = 1}^{n'} \alpha_i \alpha'_j k(x_i, x'_j)
 $$
 
 이 공간이 내적공간을 넘어서 힐베르트 공간인 것은 받아들이기로 하고, RKHS 조건 2번은 충족하는지 살펴봅시다.
 
 $$
-\lang f(\cdot) , k(\cdot, x)\rang = \lang\sum_{i = 1}^n \alpha_i k(\cdot, x_i), k(\cdot, x)\rang\\
-= (\text{ By Definition }) \sum_{i = 1}^n \alpha_i k(x, x_i)  = f(x)
+\langle f(\cdot) , k(\cdot, x)\rangle = \langle\sum_{i = 1}^n \alpha_i k(\cdot, x_i), k(\cdot, x)\rangle\\
+= (\mathrm{ By Definition }) \sum_{i = 1}^n \alpha_i k(x, x_i)  = f(x)
 $$
 
 깔끔하게 증명이 되었습니다. Moore-Aronszajn 정리에서 RKHS 공간의 유일성이 증명되었으므로  
@@ -619,7 +611,7 @@ $$
 strictly monotonically 증가함수 $g : [0, \infty) \rightarrow \mathbb{R}$에 대하여 아래 식의 값을 최소화하는 $f \in \mathcal{H}$을 찾는 최적화 문제가 주어졌을 때,
 
 $$
-f^*(\cdot) = \argmin_{f \in \mathcal{H}} \lbrace {E(\mathcal{D}) + g(\lVert f \rVert)} \rbrace
+f^*(\cdot) = \operatorname{argmin}_{f \in \mathcal{H}} \lbrace {E(\mathcal{D}) + g(\lVert f \rVert)} \rbrace
 $$
 
 $f^*$는 아래와 같은 꼴을 지닌다.  
